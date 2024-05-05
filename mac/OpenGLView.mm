@@ -1,22 +1,23 @@
 //  GDS3D, a program for viewing GDSII files in 3D.
 //  Created by Jasper Velner and Michiel Soer, http://icd.el.utwente.nl
-//  Based on code by Roger Light, http://atchoo.org/gds2pov/
-//
 //  Copyright (C) 2013 IC-Design Group, University of Twente.
 //
-//  This program is free software; you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation; either version 2 of the License, or
-//  (at your option) any later version.
+//  Based on gds2pov by Roger Light, http://atchoo.org/gds2pov/ / https://github.com/ralight/gds2pov
+//  Copyright (C) 2004-2008 by Roger Light
 //
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU Lesser General Public
+//  License as published by the Free Software Foundation; either
+//  version 2.1 of the License, or (at your option) any later version.
+//  
 //  This program is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  Lesser General Public License for more details.
+//  
+//  You should have received a copy of the GNU Lesser General Public
+//  License along with this program; if not, write to the Free Software
+//  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 #import <Cocoa/Cocoa.h>
 #import <GLUT/GLUT.h>
@@ -486,7 +487,7 @@ OpenGLView *view_gl; // Us this to access the Cocoa stuff
     {
         keyChar = [theArrow characterAtIndex:0];
         EventKey newkey = [self translateKey:keyChar];
-        root->event( 3, newkey, -1, -1, theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+        root->event( 3, newkey, -1, -1, theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
     }
 }
 
@@ -494,17 +495,17 @@ OpenGLView *view_gl; // Us this to access the Cocoa stuff
 {
     if(theEvent.keyCode == 56) // Left shift
     {
-        if(theEvent.modifierFlags & NSShiftKeyMask) // Shift key has been pushed
-            root->event( 3, KEY_LSHIFT, -1, -1, theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+        if(theEvent.modifierFlags & NSEventModifierFlagShift) // Shift key has been pushed
+            root->event( 3, KEY_LSHIFT, -1, -1, theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
         else
-            root->event( 4, KEY_LSHIFT, -1, -1, theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+            root->event( 4, KEY_LSHIFT, -1, -1, theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
     }
     if(theEvent.keyCode == 60) // Left shift
     {
-        if(theEvent.modifierFlags & NSShiftKeyMask) // Shift key has been pushed
-            root->event( 3, KEY_RSHIFT, -1, -1, theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+        if(theEvent.modifierFlags & NSEventModifierFlagShift) // Shift key has been pushed
+            root->event( 3, KEY_RSHIFT, -1, -1, theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
         else
-            root->event( 4, KEY_RSHIFT, -1, -1, theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+            root->event( 4, KEY_RSHIFT, -1, -1, theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
     }
 }
 
@@ -518,7 +519,7 @@ OpenGLView *view_gl; // Us this to access the Cocoa stuff
     {
         keyChar = [theArrow characterAtIndex:0];
         EventKey newkey = [self translateKey:keyChar];
-        root->event( 4, newkey, -1, -1, theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+        root->event( 4, newkey, -1, -1, theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
     }
 }
 
@@ -526,7 +527,7 @@ OpenGLView *view_gl; // Us this to access the Cocoa stuff
 {
     lastMousePoint   = [self convertPoint:[theEvent locationInWindow] fromView:nil] ;
     
-    root->event( 0, 0, lastMousePoint.x, viewHeight-lastMousePoint.y,  theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+    root->event( 0, 0, lastMousePoint.x, viewHeight-lastMousePoint.y,  theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
 }
 
 
@@ -534,7 +535,7 @@ OpenGLView *view_gl; // Us this to access the Cocoa stuff
 {
 	lastMousePoint   = [self convertPoint:[theEvent locationInWindow] fromView:nil] ;
     
-    root->event( 0, 1, lastMousePoint.x, viewHeight-lastMousePoint.y,  theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+    root->event( 0, 1, lastMousePoint.x, viewHeight-lastMousePoint.y,  theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
 }
 
 
@@ -543,7 +544,7 @@ OpenGLView *view_gl; // Us this to access the Cocoa stuff
     
     lastMousePoint   = [self convertPoint:[theEvent locationInWindow] fromView:nil];
     
-    root->event( 1, 0, lastMousePoint.x, viewHeight-lastMousePoint.y,   theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+    root->event( 1, 0, lastMousePoint.x, viewHeight-lastMousePoint.y,   theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
 }
 
 
@@ -551,14 +552,14 @@ OpenGLView *view_gl; // Us this to access the Cocoa stuff
 {
     lastMousePoint   = [self convertPoint:[theEvent locationInWindow] fromView:nil];
     
-    root->event( 1, 1, lastMousePoint.x, viewHeight-lastMousePoint.y,   theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+    root->event( 1, 1, lastMousePoint.x, viewHeight-lastMousePoint.y,   theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent
 {
     lastMousePoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
     
-    root->event( 2, 0, lastMousePoint.x, viewHeight-lastMousePoint.y, theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask );
+    root->event( 2, 0, lastMousePoint.x, viewHeight-lastMousePoint.y, theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption );
     [self setNeedsDisplay:YES];
 	
 }
@@ -567,7 +568,7 @@ OpenGLView *view_gl; // Us this to access the Cocoa stuff
 {
 	lastMousePoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
 	
-	root->event( 2, 1, lastMousePoint.x, viewHeight-lastMousePoint.y, theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask );
+    root->event( 2, 1, lastMousePoint.x, viewHeight-lastMousePoint.y, theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption );
 	
 	[self setNeedsDisplay:YES];
 }
@@ -577,7 +578,7 @@ OpenGLView *view_gl; // Us this to access the Cocoa stuff
 {
     lastMousePoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
     
-    root->event( 2, 0, lastMousePoint.x, viewHeight-lastMousePoint.y,  theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+    root->event( 2, 0, lastMousePoint.x, viewHeight-lastMousePoint.y,  theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
     [self setNeedsDisplay:YES];
 }
 
@@ -585,9 +586,9 @@ OpenGLView *view_gl; // Us this to access the Cocoa stuff
 {
     lastMousePoint   = [self convertPoint:[theEvent locationInWindow] fromView:nil] ;
     if(theEvent.deltaY > 0.9f)
-        root->event( 0, 2, lastMousePoint.x, viewHeight-lastMousePoint.y,   theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+        root->event( 0, 2, lastMousePoint.x, viewHeight-lastMousePoint.y,   theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
     else if(theEvent.deltaY<-0.9f)
-        root->event( 0, 3, lastMousePoint.x, viewHeight-lastMousePoint.y,  theEvent.modifierFlags & NSShiftKeyMask, theEvent.modifierFlags & NSControlKeyMask, theEvent.modifierFlags & NSAlternateKeyMask);
+        root->event( 0, 3, lastMousePoint.x, viewHeight-lastMousePoint.y,  theEvent.modifierFlags & NSEventModifierFlagShift, theEvent.modifierFlags & NSEventModifierFlagControl, theEvent.modifierFlags & NSEventModifierFlagOption);
 }
 
 
@@ -765,7 +766,7 @@ int main(int argc, char *argv[])
         // First open GDS
         [openDlg setMessage:@"Select a GDS file to open."];
         [openDlg setDirectory:@"./gds"];
-        if ( [openDlg runModal] == NSOKButton )
+        if ( [openDlg runModal] == NSModalResponseOK )
         {
             // Gets list of all files selected
             for(NSString* filePath in [openDlg filenames])
@@ -781,7 +782,7 @@ int main(int argc, char *argv[])
         // Then open technology file
         [openDlg setMessage:@"Select a technology txt file to open."];
         [openDlg setDirectory:@"./techfiles"];
-        if ( [openDlg runModal] == NSOKButton )
+        if ( [openDlg runModal] == NSModalResponseOK )
         {
             // Gets list of all files selected
             for(NSString* filePath in [openDlg filenames])

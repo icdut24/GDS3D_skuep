@@ -1,22 +1,23 @@
 //  GDS3D, a program for viewing GDSII files in 3D.
 //  Created by Jasper Velner and Michiel Soer, http://icd.el.utwente.nl
-//  Based on code by Roger Light, http://atchoo.org/gds2pov/
-//  
 //  Copyright (C) 2013 IC-Design Group, University of Twente.
 //
-//  This program is free software; you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation; either version 2 of the License, or
-//  (at your option) any later version.
+//  Based on gds2pov by Roger Light, http://atchoo.org/gds2pov/ / https://github.com/ralight/gds2pov
+//  Copyright (C) 2004-2008 by Roger Light
 //
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU Lesser General Public
+//  License as published by the Free Software Foundation; either
+//  version 2.1 of the License, or (at your option) any later version.
+//  
 //  This program is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+//  Lesser General Public License for more details.
+//  
+//  You should have received a copy of the GNU Lesser General Public
+//  License along with this program; if not, write to the Free Software
+//  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include "gds_globals.h"
 #include "listview.h"
@@ -1028,7 +1029,7 @@ void ListView::gl_triangle(GLint x1, GLint y1, GLint x2, GLint y2, GLint x3, GLi
 // Prints a text at the given position, if maxwidth > -1 it will try to concatenate the text if it is too long, appending '...' at the end
 void ListView::gl_text(GLint x, GLint y, GLfloat red, GLfloat green, GLfloat blue, string text, int maxwidth) {
 	string str = text;
-	int length = str.length();
+	int length = (int)str.length();
 	
 	// Shorten text if it is too wide
 	if (maxwidth > 0 && length > (maxwidth / 10)) {

@@ -1,6 +1,6 @@
 # Flags
 CC=g++
-CFLAGS=-c -w -O1 -I ../math/ -I ../gdsoglviewer/ -I ../libgdsto3d/
+CFLAGS=-std=c++11 -c -w -O1 -I ../math/ -I ../gdsoglviewer/ -I ../libgdsto3d/
 LDFLAGS=-L/usr/X11R6/lib64/ -lX11 -lGL -static-libgcc -static-libstdc++ 
 # Static linking of stdc++ available starting at GCC 4.5
 
