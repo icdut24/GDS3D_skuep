@@ -20,7 +20,7 @@ Contents:
    5.3 Recommendations
 6. Compiling the Code
 7. Keymap
-8. Contact Information
+8. Contact Information & License
 
 
 1. Introduction
@@ -97,7 +97,7 @@ By pressing the M key, the program switches to mouse control mode. In this mode 
 4.2.1 Legend
 
 The program contains a legend, which can be toggled with the L key, from where the visibility of each layer can be toggled.
-Another way to show or hide layers is by pressing the control key and scrolling the mouse wheel. Scrolling up will hide the last visible layer (basically stripping away layers from the top with each �click�) and scrolling down will un-hide the last hidden layer. By using the alt instead of the control key, the same procedure can be used, except it will start from the bottom up.
+Another way to show or hide layers is by pressing the control key and scrolling the mouse wheel. Scrolling up will hide the last visible layer (basically stripping away layers from the top with each  click ) and scrolling down will un-hide the last hidden layer. By using the alt instead of the control key, the same procedure can be used, except it will start from the bottom up.
 The third and final way in which the user can toggle layer visibility if by using shortkeys defined in the process definition file.
 
 4.2.2 Rulers
@@ -233,11 +233,20 @@ Wheel Up/Down:      Move Up/Down
 <Ctrl> Wheel Up:    Hide Last Visible Layer / Change Ruler Layer
 <Ctrl> Wheel Down:  Show Last Invisible Layer / Change Ruler Layer
 
-8. Contact Information
+8. Contact Information & License
 
-If you are having difficulties running this program, don't hesitate to contact us for free support through the SourceForge website:
+GDS3D is created by Jasper Velner and Michiel Soer, from the Integrated Circuit Design Group of the University of Twente.
+http://www.icd.el.utwente.nl/
 
+GDS3D is hosted at SourceForge, but no longer actively maintained by us.
 http://sourceforge.net/projects/gds3d/
 
-Jasper Velner
-Michiel Soer
+GDS3D is based on the gds2pov project by Roger Light.
+http://atchoo.org/gds2pov/ / https://github.com/ralight/gds2pov
+
+GDS3D uses a math library copyright (c) 2006, Paul Baker.
+All rights reserved.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+GDS3D is free software, licensed under the GNU Lesser General Public License 2.1
